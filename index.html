@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hiển thị các số nguyên tố đầu tiên</title>
+</head>
+<body>
+<script>
+    function checkNT(number) {
+        let count = 0; // đếm số ước của số đang xét;
+        let countSNT = 0; // đếm xem đã đủ số lượng số nguyên tố cần in ra chưa;
+        for (let i = 2; i < number; i++) { // 2,3,4,5,6,7,8,....,1000
+            if (countSNT < 20) { // Nếu số lượng SNT in ra < so với số lượng yêu cầu
+                for (let j = 1; j <= i; j++) {
+                    if (i % j == 0) {
+                        count += 1; // tới đây count = 1 chưa thỏa mãn nên vòng lặp tiếp tục
+                    }
+                }
+                if (count == 2) { // điều kiện trên thỏa mãn
+                    document.write(i + "<br>"); //4 //ghi ra số nguyên tố đầu tiên
+                    countSNT += 1; //1 đồng thời đếm đây là nguyên tố thứ nhất và set countSNT = 1
+                }
+                count = 0; // set lại count = 0
+            } else {
+                break;
+            }
+        }
+    }
+    let number = parseInt(prompt("Nhập n số nguyên tố đầu tiên: ")); //10
+    checkNT(number);
+</script>
+</body>
+</html>
